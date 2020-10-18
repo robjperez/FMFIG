@@ -1,13 +1,9 @@
 // EjerciciosFundamentos.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
-#include <igl/cotmatrix.h>
-#include <igl/readPLY.h>
-#include <igl/opengl/glfw/Viewer.h>
+#include "stdafx.h"
 
-#include <Eigen/Dense>
-#include <Eigen/Sparse>
+using namespace std;
 
 int main()
 {
@@ -16,24 +12,19 @@ int main()
     igl::readPLY("..\\gargoyle.25kv.ply", V, F);
     
     // Ejercicio 1
-    /*Eigen::Vector3d centroide;
+    Eigen::Vector3d centroide = { 0, 0, 0 };
 
-    for (size_t i = 0; i < V.rows(); i++) {        
-        centroide[0] += V(i, 0);
-        centroide[1] += V(i, 1);
-        centroide[2] += V(i, 2);        
-
-        std::cout << centroide << std::endl;
+    for (size_t i = 0; i < V.rows(); i++) {
+        centroide += V.row(i);             
     }
-
     centroide /= V.rows();
 
-    std::cout << "Centroide: " << centroide << std::endl;*/
+    cout << "Centroide= " << endl << centroide << endl;
 
     // Plot the mesh
-    igl::opengl::glfw::Viewer viewer;
+    /*igl::opengl::glfw::Viewer viewer;
     viewer.data().set_mesh(V, F);
-    viewer.launch();
+    viewer.launch();*/
 
 
     return 0;
